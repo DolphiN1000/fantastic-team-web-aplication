@@ -13,15 +13,20 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
     filename: "bundle.js",
   },
   devServer: {
     open: true,
     host: "localhost",
-    port: 8080,
+    port: 3001,
     hot: true,
+    liveReload: true,
     static: {
       directory: path.join(__dirname, "dist"),
+    },
+    devMiddleware: {
+      writeToDisk: true, // це змушує Webpack записувати файли в "dist"
     },
   },
   plugins: [
