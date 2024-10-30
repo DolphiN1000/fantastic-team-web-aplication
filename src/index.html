@@ -12,11 +12,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./css/main.min.css" />
+    <link rel="stylesheet" href="./sass/main.scss" />
+
+    <!-- <link rel="stylesheet" href="./css/main.min.css" /> -->
   </head>
   <body>
     <!-- Header --                    ----->
-    <include src="./partials/header.html"></include>
+    <!-- <include src="./partials/header.html"></include> -->
+    <%= require('html-loader!./partials/header.html').default %>
+
     <main>
       <!-- Hero --                    ----->
       <hero><h1 class="hero__h1">text test</h1></hero>

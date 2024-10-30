@@ -20,6 +20,7 @@
     "workbox-webpack-plugin": "^7.1.0"
   },
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Fantastic-team-web-aplication",
   "name": "fantastic-team-web-aplication",
   "scripts": {
