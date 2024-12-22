@@ -6,6 +6,7 @@
     "@webpack-cli/generators": "^3.0.7",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "ftp-deploy": "^2.4.7",
     "glob": "^11.0.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
@@ -28,6 +29,8 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "start": "WATCHPACK_POLLING=true webpack serve"
+    "start": "WATCHPACK_POLLING=true webpack serve",
+    "ftp-upload": "npx ftp-deploy --config-file=./ftp-config.json",
+    "deploy": "node deploy.js" 
   }
 }

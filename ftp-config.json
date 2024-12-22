@@ -1,0 +1,16 @@
+    {
+        "name": "WebBees.com.ua",
+        "host": "ftp.s48.freehost.com.ua",
+        "port": 21,
+        "type": "ftp",
+        "username": "milanasho_webbee",
+        "password": "B7eZGPcyOv",
+        "localRoot": "/dist",
+        "remoteRoot": "/webbees.com.ua",
+        "include": ["*", "**/*"], 
+        "exclude": ["**/*.map"],
+        "deleteRemote": false,
+        "forcePasv": false,
+        "autosave": true,
+        "confirm": true
+    }
