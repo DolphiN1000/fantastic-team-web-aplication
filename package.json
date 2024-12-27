@@ -29,7 +29,7 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "start": "WATCHPACK_POLLING=true webpack serve",
+    "start": "set WATCHPACK_POLLING=true && webpack serve",
     "ftp-upload": "npx ftp-deploy --config-file=./ftp-config.json",
     "deploy": "node deploy.js" 
   }
