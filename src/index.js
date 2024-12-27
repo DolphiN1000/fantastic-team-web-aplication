@@ -18,13 +18,13 @@ import contactUsHTML from "./partials/contactUs.html";
 import footerHTML from "./partials/footer.html";
 
 document.getElementById("header").innerHTML = headerHTML;
-document.getElementById("hero").innerHTML = heroHTML;
-document.getElementById("whatWeDo").innerHTML = whatWeDoHTML;
-document.getElementById("ourServices").innerHTML = ourServicesHTML;
-document.getElementById("ourPortfolio").innerHTML = ourPortfolioHTML;
-document.getElementById("pricing").innerHTML = pricingHTML;
+// document.getElementById("hero").innerHTML = heroHTML;
+// document.getElementById("whatWeDo").innerHTML = whatWeDoHTML;
+// document.getElementById("ourServices").innerHTML = ourServicesHTML;
+// document.getElementById("ourPortfolio").innerHTML = ourPortfolioHTML;
+// document.getElementById("pricing").innerHTML = pricingHTML;
 document.getElementById("contactUs").innerHTML = contactUsHTML;
-document.getElementById("footer").innerHTML = footerHTML;
+// document.getElementById("footer").innerHTML = footerHTML;
 
 
 

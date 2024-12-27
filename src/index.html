@@ -45,8 +45,8 @@
       <!-- <section id="ourPortfolio" class="section"><div class="container"></div></section> -->
       <!-- Pricing --                 ----->
       <!-- <section id="pricing" class="section"><div class="container"></div></section> -->
-      <!-- Contact Us --              ----->
-      <!-- <section id="contactUs" class="section"><div class="container"></div></section> -->
+      <!-- Contact Us --              --- -->
+      <section id="contactUs" class="section"><div class="container"></div></section>
     </main>
     <!-- Footer --                    ----->
     <!-- <footer><div id="footer"></div></footer> -->
@@ -69,4 +69,36 @@
       });
     }
   </script> -->
+  <script src="https://cdn.jsdelivr.net/npm/smtp.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      // Зібрати дані з форми
+      const formData = new FormData(e.target);
+      const name = formData.get("name");
+      const email = formData.get("email");
+      const message = formData.get("message");
+  
+      // Відправити дані через SMTP.js
+      Email.send({
+        SecureToken: "YOUR_SECURE_TOKEN", // Див. як отримати нижче
+        To: "your-email@domain.com", // Куди надсилати листи
+        From: "your-email@domain.com", // Відправник
+        Subject: "Нове повідомлення з форми",
+        Body: `
+          <h3>Повідомлення з форми</h3>
+          <p><strong>Ім'я:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Повідомлення:</strong><br />${message}</p>
+        `,
+      }).then((response) => {
+        alert("Повідомлення успішно надіслано!");
+        e.target.reset(); // Очистити форму
+      }).catch((error) => {
+        console.error("Помилка під час надсилання:", error);
+        alert("Помилка. Спробуйте ще раз.");
+      });
+    });
+  </script>
 </html>
