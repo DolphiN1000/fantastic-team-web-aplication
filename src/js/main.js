@@ -1,18 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.querySelector('.header__nav__btn');
-    const menu = document.querySelector('.header__nav__list');
-    const logo = document.querySelector('.header__logo'); // Вибір логотипа
+   const menuButton = document.querySelector('.header__nav__btn');
+const menuList = document.querySelector('.header__nav__list');
+const logo = document.querySelector('.header__logo');
+const transitionDuration = parseFloat(
+  getComputedStyle(menuList).getPropertyValue('--transition-duration')
+); // Отримуємо тривалість transition у мс
 
-    console.log(menuBtn);
-
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('header__nav__btn--active');
-            menu.classList.toggle('header__nav__list--active');
-            logo.classList.toggle('header__logo--hidden'); // Додаємо/знімаємо клас
-        });
-    } else {
-        console.error('menuBtn не знайдено');
-    }
+menuButton.addEventListener('click', () => {
+  if (menuButton.classList.contains('header__nav__btn--active')) {
+    // Якщо меню відкрите - закриваємо і показуємо логотип після затримки
+    menuButton.classList.remove('header__nav__btn--active');
+    menuList.classList.remove('header__nav__list--active');
+    setTimeout(() => {
+      logo.classList.remove('header__logo--hidden');
+    }, transitionDuration);
+  } else {
+    // Якщо меню закрите - відкриваємо і ховаємо логотип одразу
+    menuButton.classList.add('header__nav__btn--active');
+    menuList.classList.add('header__nav__list--active');
+    logo.classList.add('header__logo--hidden');
+  }
+});
 });
 
