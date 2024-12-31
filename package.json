@@ -31,6 +31,9 @@
     "watch": "webpack --watch",
     "start": "set WATCHPACK_POLLING=true && webpack serve",
     "ftp-upload": "npx ftp-deploy --config-file=./ftp-config.json",
-    "deploy": "node deploy.js" 
+    "deploy": "node deploy.js"
+  },
+  "dependencies": {
+    "emailjs": "^4.0.3"
   }
 }
