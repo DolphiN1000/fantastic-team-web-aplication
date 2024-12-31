@@ -1,0 +1,45 @@
+.contact-us__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Відстань між елементами */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select,
+  .form-group button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group textarea {
+    resize: vertical; /* Дозволити змінювати розмір тільки по вертикалі */
+  }
+  
+  .form-group select {
+    appearance: none; /* Вимикає стилізацію за замовчуванням браузера */
+    background-color: #fff;
+  }
+
+  .form-group button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form-group button:hover {
+    background-color: #0056b3;
+  }

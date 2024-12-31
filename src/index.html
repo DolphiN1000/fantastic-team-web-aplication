@@ -36,22 +36,45 @@
     <header id="header"></header>
     <main>
       <!-- Hero ----->
-      <!-- <hero id="hero"></hero> -->
+      <hero id="hero"></hero>
       <!-- WhatWeDo --             ----->
-      <!-- <section id="whatWeDo" class="section"><div class="container"></div></section> -->
+      <section id="whatWeDo" class="section"><div class="container"></div></section>
       <!-- Our Services --           ----->
-      <!-- <section id="ourServices" class="section"><div class="container"></div></section> -->
+      <section id="ourServices" class="section"><div class="container"></div></section>
       <!-- Our Portfolio --           ----->
-      <!-- <section id="ourPortfolio" class="section"><div class="container"></div></section> -->
+      <section id="ourPortfolio" class="section"><div class="container"></div></section>
       <!-- Pricing --                 ----->
-      <!-- <section id="pricing" class="section"><div class="container"></div></section> -->
+      <section id="pricing" class="section"><div class="container"></div></section>
       <!-- Contact Us --              ----->
-      <!-- <section id="contactUs" class="section"><div class="container"></div></section> -->
+      <section id="contactUs" class="section"></section>
     </main>
     <!-- Footer --                    ----->
-    <!-- <footer><div id="footer"></div></footer> -->
+    <footer><div id="footer"></div></footer>
   </body>
-
+  <script>
+    async function submitForm(event) {
+      event.preventDefault();
+  
+      const formData = Object.fromEntries(new FormData(event.target).entries());
+  
+      try {
+        const response = await fetch("https://www.form-to-email.com/api/s/UTiw851OywNk", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (!response.ok) {
+          // in case of malformed form data
+        } else {
+          // in case of success
+        }
+      } catch (error) {
+        // in case of form-to-email server not responding
+      }
+    }
+  </script>
   <!-- <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
