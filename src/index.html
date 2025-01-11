@@ -127,18 +127,29 @@
       }
     }
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
-  $(document).ready(function () {
-    $(".btn").on("mouseenter mouseout", function (e) {
-      let parentOffset = $(this).offset(),
-        relX = e.pageX - parentOffset.left,
-        relY = e.pageY - parentOffset.top;
-      $(this).find("span").css({
-        top: relY,
-        left: relX,
-      });
+$(document).ready(function () {
+  $(".btn").on("mouseenter", function (e) {
+    let span = $("<span></span>").appendTo(this); // Додаємо `span`
+    let parentOffset = $(this).offset(),
+      relX = e.pageX - parentOffset.left,
+      relY = e.pageY - parentOffset.top;
+
+    span.css({
+      top: relY + "px",
+      left: relX + "px",
+      width: "200px",
+      height: "200px",
     });
+
+    setTimeout(() => {
+      span.remove(); // Видаляємо після анімації
+    }, 400);
   });
+});
+
 </script>
 
   <!-- <script>
