@@ -6,7 +6,7 @@
   overflow: hidden;
   z-index: 5;
   transition: all 0.4s ease-in-out;
-  background: #ffd500;
+  background: transparent;
   color: #000;
   padding: 30px 80px;
   border-radius: 8px;
@@ -20,7 +20,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: #015cdb;
+  background: #ffd500;
   transition:
     width 0.4s ease-in-out,
     height 0.4s ease-in-out;
@@ -28,9 +28,9 @@
   z-index: -1;
 }
 
-.btn:hover {
-  color: #ffd500;
-}
+// .btn:hover {
+//   color: #ffd500;
+// }
 
 .btn:hover span {
   width: 225%;
