@@ -1,7 +1,4 @@
-console.log("JavaScript працює!");
-    document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM завантажений!");
-
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".btn").forEach((btn) => {
     btn.addEventListener("mouseenter", function (e) {
       let rect = btn.getBoundingClientRect();
@@ -28,6 +25,4 @@ console.log("JavaScript працює!");
     });
   });
 });
-    document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM завантажений!");
-});
+document.addEventListener("DOMContentLoaded", function () {});
