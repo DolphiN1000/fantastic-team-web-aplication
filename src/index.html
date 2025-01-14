@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -60,7 +60,7 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="./ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <title>WebBees App</title>
+    <title lang="en">WebBees App</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -100,50 +100,4 @@
     <!-- Footer --                    ----->
     <footer><div id="footer"></div></footer>
   </body>
-  <script>
-    async function submitForm(event) {
-      event.preventDefault();
-
-      const formData = Object.fromEntries(new FormData(event.target).entries());
-
-      try {
-        const response = await fetch(
-          "https://www.form-to-email.com/api/s/UTiw851OywNk",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        );
-        if (!response.ok) {
-          // in case of malformed form data
-        } else {
-          // in case of success
-        }
-      } catch (error) {
-        // in case of form-to-email server not responding
-      }
-    }
-  </script>
-
-
-  <!-- <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("service-worker.js")
-          .then((registration) => {
-            console.log("Service Worker registered: ", registration);
-          })
-          .catch((registrationError) => {
-            console.error(
-              "Service Worker registration failed: ",
-              registrationError
-            );
-          });
-      });
-    }
-  </script> -->
 </html>
