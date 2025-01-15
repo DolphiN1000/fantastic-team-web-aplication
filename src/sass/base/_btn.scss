@@ -5,7 +5,7 @@
   position: relative;
   overflow: hidden;
   z-index: 5;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.6s ease-in-out;
   background-color: inherit;
   color: #000;
   padding: 20px 60px;
@@ -13,6 +13,14 @@
   border: 1px solid var(--stroke-color);
   font-size: 20px;
   text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  &:hover,
+  &:focus {
+    border-color: #ffd500;
+    box-shadow: 0px 4px 8px rgba(255, 213, 0, 0.5);
+    outline: 2px solid #ffd500;
+  }
 }
 
 .btn span {
@@ -23,15 +31,11 @@
   border-radius: 50%;
   background: var(--accent-color);
   transition:
-    width 0.4s ease-in-out,
-    height 0.4s ease-in-out;
+    width 0.6s ease-in-out,
+    height 0.6s ease-in-out;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
-
-// .btn:hover {
-//   color: #ffd500;
-// }
 
 .btn:hover span {
   width: 225%;
