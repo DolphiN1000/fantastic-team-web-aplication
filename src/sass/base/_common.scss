@@ -2,8 +2,14 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
+
+// body {
+// }
 
 h1,
 h2,
@@ -38,6 +44,15 @@ img {
   text-decoration: none;
 }
 
+address {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 h2 {
   font-size: 41px;
 }
@@ -57,4 +72,3 @@ h2 {
     font-size: 80px;
   }
 }
-
