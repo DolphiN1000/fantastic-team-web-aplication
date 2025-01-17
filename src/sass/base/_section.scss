@@ -1,7 +1,7 @@
 .section {
   padding-top: 60px;
   padding-bottom: 60px;
-  &:nth-child(odd) {
+  &:nth-child(2n+3) {
     background-color: var(--dark-background-color);
     color: var(--white-text-color);
   }

@@ -1,10 +1,17 @@
 .header {
   position: fixed;
   left: 0;
-  top: 30px;
+  // top: 30px;
   right: 0;
   z-index: 10;
-  padding: 0 20px;
+  // padding: 0 20px;
+  padding: 32px 20px;
+
+  
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(7.5px);
+
+
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -12,6 +19,7 @@
     min-height: 30px;
     font-size: 15px;
     line-height: 17px;
+
   }
 }
 
