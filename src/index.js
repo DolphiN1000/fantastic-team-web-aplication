@@ -1,5 +1,3 @@
-// import './sass/main.scss';
-
 console.log("Hello WebBees!");
 
 if (module.hot) {
@@ -8,6 +6,9 @@ if (module.hot) {
 
 import "./sass/main.scss";
 import "./js/main";
+import "./js/btn";
+import "./js/submit-form"
+import "./js/service-worker-start"
 import headerHTML from "./partials/header.html";
 import heroHTML from "./partials/hero.html";
 import whatWeDoHTML from "./partials/whatWeDo.html";
