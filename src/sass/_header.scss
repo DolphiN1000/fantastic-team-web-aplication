@@ -89,6 +89,7 @@
 
 @media (max-width: 1279px) {
   .header__nav__btn {
+
     display: block;
     background-color: transparent;
     border: none;
@@ -149,6 +150,8 @@
     top: 0;
     bottom: 0;
     right: 0;
+    height: 100vh;
+
     background-image: url("../images/mobile-menu.png");
     background-repeat: no-repeat;
     background-position: right bottom;
