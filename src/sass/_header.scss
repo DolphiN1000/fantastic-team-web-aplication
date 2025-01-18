@@ -1,8 +1,8 @@
 .header {
   position: fixed;
-  left: 0;
+  // left: 0;
   // top: 30px;
-  right: 0;
+  // right: 0;
   z-index: 10;
   // padding: 0 20px;
   padding: 32px 20px;
@@ -93,7 +93,7 @@
     background-color: transparent;
     border: none;
     outline: none;
-    padding: 0;
+    // padding: 0;
     cursor: pointer;
   }
 
@@ -149,6 +149,8 @@
     top: 0;
     bottom: 0;
     right: 0;
+    height: 100vh;
+
     background-image: url("../images/mobile-menu.png");
     background-repeat: no-repeat;
     background-position: right bottom;
