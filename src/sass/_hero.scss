@@ -1,27 +1,35 @@
 .hero {
+  background-image: url("../images/background/bg-test.jpg");
+  background-size: cover;
+  background-position: 52%;
+  background-repeat: no-repeat;
+  // width: 100%;
   height: 100vh; /* Висота на весь екран */
 }
 
-.hero__container {
-  height: 100%;
-}
+// .hero__container {
+//   height: 100%;
+
+// }
 
 .hero__box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-@media (max-width: 480px) {
-  .hero__box {
-    background-image: url("../images/background/bg-hero-mobile.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
-  }
+@media (max-width: 7670px) {
+  // .hero__box {
+  //   // background-image: url("../images/background/bg-hero-mobile.jpg");
+  //   background-image: url("../images/background/bg-test.jpg");
+  //   background-size: cover;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   // width: 100%;
+  //   height: 100vh;
+  // }
 
   .hero__box__title {
     color: #f6f6f6;
@@ -60,52 +68,54 @@
     }
   }
 
-  @supports (background-image: url(image.webp)) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-mobile.webp");
-    }
-  }
+  //   @supports (background-image: url(image.webp)) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-mobile.webp");
+  //     }
+  //   }
 
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-mobile@2x.jpg");
-    }
+  //   @media (min-device-pixel-ratio: 2),
+  //     (-webkit-min-device-pixel-ratio: 2),
+  //     (min-resolution: 192dpi),
+  //     (min-resolution: 2dppx) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-mobile@2x.jpg");
+  //     }
 
-    @supports (background-image: url(image.webp)) {
-      .hero__box {
-        background-image: url("../images/background/bg-hero-mobile@2x.webp");
-      }
-    }
-  }
+  //     @supports (background-image: url(image.webp)) {
+  //       .hero__box {
+  //         background-image: url("../images/background/bg-hero-mobile@2x.webp");
+  //       }
+  //     }
+  //   }
 
-  @media (min-device-pixel-ratio: 3),
-    (-webkit-min-device-pixel-ratio: 3),
-    (min-resolution: 288dpi),
-    (min-resolution: 3dppx) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-mobile@3x.jpg");
-    }
+  //   @media (min-device-pixel-ratio: 3),
+  //     (-webkit-min-device-pixel-ratio: 3),
+  //     (min-resolution: 288dpi),
+  //     (min-resolution: 3dppx) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-mobile@3x.jpg");
+  //     }
 
-    @supports (background-image: url(image.webp)) {
-      .hero__box {
-        background-image: url("../images/background/bg-hero-mobile@3x.webp");
-      }
-    }
-  }
+  //     @supports (background-image: url(image.webp)) {
+  //       .hero__box {
+  //         background-image: url("../images/background/bg-hero-mobile@3x.webp");
+  //       }
+  //     }
+  //   }
 }
 
 @media (min-width: 480px) {
   .hero__box {
     align-items: start;
-    background-image: url("../images/background/bg-hero-tablet.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
+    // // background-image: url("../images/background/bg-hero-tablet.jpg");
+    // background-image: url("../images/background/bg-test.jpg");
+
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // // width: 100%;
+    // height: 100vh;
   }
 
   .hero__box__title {
@@ -148,52 +158,54 @@
     }
   }
 
-  @supports (background-image: url(image.webp)) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-tablet.webp");
-    }
-  }
+  //   @supports (background-image: url(image.webp)) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-tablet.webp");
+  //     }
+  //   }
 
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-tablet@2x.jpg");
-    }
+  //   @media (min-device-pixel-ratio: 2),
+  //     (-webkit-min-device-pixel-ratio: 2),
+  //     (min-resolution: 192dpi),
+  //     (min-resolution: 2dppx) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-tablet@2x.jpg");
+  //     }
 
-    @supports (background-image: url(image.webp)) {
-      .hero__box {
-        background-image: url("../images/background/bg-hero-tablet@2x.webp");
-      }
-    }
-  }
+  //     @supports (background-image: url(image.webp)) {
+  //       .hero__box {
+  //         background-image: url("../images/background/bg-hero-tablet@2x.webp");
+  //       }
+  //     }
+  //   }
 
-  @media (min-device-pixel-ratio: 3),
-    (-webkit-min-device-pixel-ratio: 3),
-    (min-resolution: 288dpi),
-    (min-resolution: 3dppx) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-tablet@3x.jpg");
-    }
+  //   @media (min-device-pixel-ratio: 3),
+  //     (-webkit-min-device-pixel-ratio: 3),
+  //     (min-resolution: 288dpi),
+  //     (min-resolution: 3dppx) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-tablet@3x.jpg");
+  //     }
 
-    @supports (background-image: url(image.webp)) {
-      .hero__box {
-        background-image: url("../images/background/bg-hero-tablet@3x.webp");
-      }
-    }
-  }
+  //     @supports (background-image: url(image.webp)) {
+  //       .hero__box {
+  //         background-image: url("../images/background/bg-hero-tablet@3x.webp");
+  //       }
+  //     }
+  //   }
 }
 
-@media (min-width: 1440px) {
-  .hero__box {
-    background-image: url("../images/background/bg-hero-desktop.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
-  }
+@media (min-width: 1280px) {
+  // .hero__box {
+  //   // background-image: url("../images/background/bg-hero-desktop.jpg");
+  //   background-image: url("../images/background/bg-test.jpg");
+
+  //   background-size: cover;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   // width: 100%;
+  //   height: 100vh;
+  // }
 
   .hero__box__title {
     font-size: 68px;
@@ -204,39 +216,39 @@
     font-size: 30px;
   }
 
-  @supports (background-image: url(image.webp)) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-desktop.webp");
-    }
-  }
+  //   @supports (background-image: url(image.webp)) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-desktop.webp");
+  //     }
+  //   }
 
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-desktop@2x.jpg");
-    }
+  //   @media (min-device-pixel-ratio: 2),
+  //     (-webkit-min-device-pixel-ratio: 2),
+  //     (min-resolution: 192dpi),
+  //     (min-resolution: 2dppx) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-desktop@2x.jpg");
+  //     }
 
-    @supports (background-image: url(image.webp)) {
-      .hero__box {
-        background-image: url("../images/background/bg-hero-desktop@2x.webp");
-      }
-    }
-  }
+  //     @supports (background-image: url(image.webp)) {
+  //       .hero__box {
+  //         background-image: url("../images/background/bg-hero-desktop@2x.webp");
+  //       }
+  //     }
+  //   }
 
-  @media (min-device-pixel-ratio: 3),
-    (-webkit-min-device-pixel-ratio: 3),
-    (min-resolution: 288dpi),
-    (min-resolution: 3dppx) {
-    .hero__box {
-      background-image: url("../images/background/bg-hero-desktop@3x.jpg");
-    }
+  //   @media (min-device-pixel-ratio: 3),
+  //     (-webkit-min-device-pixel-ratio: 3),
+  //     (min-resolution: 288dpi),
+  //     (min-resolution: 3dppx) {
+  //     .hero__box {
+  //       background-image: url("../images/background/bg-hero-desktop@3x.jpg");
+  //     }
 
-    @supports (background-image: url(image.webp)) {
-      .hero__box {
-        background-image: url("../images/background/bg-hero-desktop@3x.webp");
-      }
-    }
-  }
+  //     @supports (background-image: url(image.webp)) {
+  //       .hero__box {
+  //         background-image: url("../images/background/bg-hero-desktop@3x.webp");
+  //       }
+  //     }
+  //   }
 }
