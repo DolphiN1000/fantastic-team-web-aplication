@@ -1,5 +1,5 @@
 .contact-us {
-  background-image: url(../images/background-lines.svg);
+  background-image: url(../images/bg-hexagon.svg);
   background-repeat: no-repeat;
   background-position: 100% -5.24%;
 }
@@ -14,9 +14,16 @@
   gap: 20px;
 
   @media screen and (min-width: 768px) {
-    gap: 32px;
+    gap: 32px; 
+    @media screen and (max-width: 1279px) {
+      width: 492px;
+    }
   }
-}
+  @media screen and (min-width: 1279px) {
+    width: 636px;
+  }
+  }
+
 
 .form-group {
   display: flex;
@@ -47,12 +54,12 @@
   @media screen and (min-width: 768px) {
     padding: 20px;
 
-    @media screen and (max-width: 1279px) {
-      width: 492px;
-    }
-    @media screen and (max-width: 1280px) {
-      width: 636px;
-    }
+  //   @media screen and (max-width: 1279px) {
+  //     width: 492px;
+  //   }
+  // }
+  // @media screen and (min-width: 1279px) {
+  //   width: 636px;
   }
 }
 
@@ -65,8 +72,3 @@
   background-color: #fff;
 }
 
-// .form-group input:hover,
-// .form-group textarea:hover,
-// .form-group select:hover {
-//   border-color: var(--accent-color);
-// }
