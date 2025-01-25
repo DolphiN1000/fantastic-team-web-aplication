@@ -23,7 +23,7 @@ document.getElementById("hero").innerHTML = heroHTML;
 document.getElementById("whatWeDo").innerHTML = whatWeDoHTML;
 document.getElementById("ourServices").innerHTML = ourServicesHTML;
 document.getElementById("ourPortfolio").innerHTML = ourPortfolioHTML;
-document.getElementById("pricing").innerHTML = pricingHTML;
+// document.getElementById("pricing").innerHTML = pricingHTML;
 document.getElementById("contactUs").innerHTML = contactUsHTML;
 document.getElementById("footer").innerHTML = footerHTML;
 
