@@ -2,6 +2,17 @@
   background-image: url(../images/background-lines.svg);
   background-repeat: no-repeat;
   background-position: 100% -5.24%;
+
+  background-image: url(../images/background-lines.svg),
+    url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
+    url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
+    url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
+    url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
+    url("../images/bg-hexagon.svg"),
+    url("../images/bg-hexagon.svg");
+  background-position:
+  100% -5.24%, 20px 50px, 350px 50px, -145px 150px, 185px 150px, 20px 250px, -145px  350px, 185px 350px, 20px 445px, 350px 445px, 185px 540px;
+  background-repeat: no-repeat;
 }
 
 .contact-us__h2 {
@@ -14,7 +25,7 @@
   gap: 20px;
 
   @media screen and (min-width: 768px) {
-    gap: 32px; 
+    gap: 32px;
     @media screen and (max-width: 1279px) {
       width: 492px;
     }
@@ -22,8 +33,7 @@
   @media screen and (min-width: 1279px) {
     width: 636px;
   }
-  }
-
+}
 
 .form-group {
   display: flex;
@@ -54,12 +64,12 @@
   @media screen and (min-width: 768px) {
     padding: 20px;
 
-  //   @media screen and (max-width: 1279px) {
-  //     width: 492px;
-  //   }
-  // }
-  // @media screen and (min-width: 1279px) {
-  //   width: 636px;
+    //   @media screen and (max-width: 1279px) {
+    //     width: 492px;
+    //   }
+    // }
+    // @media screen and (min-width: 1279px) {
+    //   width: 636px;
   }
 }
 
@@ -71,4 +81,3 @@
   appearance: none; /* Вимикає стилізацію за замовчуванням браузера */
   background-color: #fff;
 }
-
