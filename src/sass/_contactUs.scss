@@ -1,6 +1,8 @@
 .contact-us {
-  --hexagon-grup-position-x: 100px;
-  --hexagon-grup-position-y: 100px;
+  --hexagon-grup-position-x: 400px;
+  --hexagon-grup-position-y: 200px;
+  --hexagon-width: 165px;
+  --hexagon-height: 190px;
   background-image: url(../images/background-lines.svg);
   background-repeat: no-repeat;
   background-position: 100% -5.24%;
@@ -10,10 +12,29 @@
     url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
     url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
     url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg"),
-    url("../images/bg-hexagon.svg"),
-    url("../images/bg-hexagon.svg");
+    url("../images/bg-hexagon.svg"), url("../images/bg-hexagon.svg");
   background-position:
-  100% -5.24%, 20px 50px, 350px 50px, -145px 150px, 185px 150px, 20px 250px, -145px  350px, 185px 350px, 20px 445px, 350px 445px, 185px 540px;
+    100% -5.24%,
+    // 20px 50px,
+    // 350px 50px,
+    // -145px 150px,
+    // 185px 150px,
+    // 20px 250px,
+    // -145px 350px,
+    // 185px 350px,
+    // 20px 445px,
+    // 350px 445px,
+    // 185px 540px;
+    calc(var(--hexagon-grup-position-x) + 165px)  calc(var(--hexagon-grup-position-y) + 0px),
+    calc(var(--hexagon-grup-position-x) + 495px) calc(var(--hexagon-grup-position-y) + 0px),
+    calc(var(--hexagon-grup-position-x) + 0px) calc(var(--hexagon-grup-position-y) + 100px),
+    calc(var(--hexagon-grup-position-x) + 330px) calc(var(--hexagon-grup-position-y) + 100px),
+    calc(var(--hexagon-grup-position-x) + 165px)  calc(var(--hexagon-grup-position-y) + 200px),
+    calc(var(--hexagon-grup-position-x) + 0px) calc(var(--hexagon-grup-position-y) + 300px),
+    calc(var(--hexagon-grup-position-x) + 330px) calc(var(--hexagon-grup-position-y) + 300px),
+    calc(var(--hexagon-grup-position-x) + 165px)  calc(var(--hexagon-grup-position-y) + 395px),
+    calc(var(--hexagon-grup-position-x) + 495px) calc(var(--hexagon-grup-position-y) + 395px),
+    calc(var(--hexagon-grup-position-x) + 330px) calc(var(--hexagon-grup-position-y) + 490px);
   background-repeat: no-repeat;
 }
 
