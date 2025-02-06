@@ -1,8 +1,8 @@
 .contact-us {
   --hexagon-grup-position-x: 400px;
   --hexagon-grup-position-y: 200px;
-  --hexagon-width: 165px;
-  --hexagon-height: 190px;
+  --hexagon-width: 225px;
+  --hexagon-height: 100px;
   background-image: url(../images/background-lines.svg);
   background-repeat: no-repeat;
   background-position: 100% -5.24%;
@@ -25,16 +25,27 @@
     // 20px 445px,
     // 350px 445px,
     // 185px 540px;
-    calc(var(--hexagon-grup-position-x) + 165px)  calc(var(--hexagon-grup-position-y) + 0px),
-    calc(var(--hexagon-grup-position-x) + 495px) calc(var(--hexagon-grup-position-y) + 0px),
-    calc(var(--hexagon-grup-position-x) + 0px) calc(var(--hexagon-grup-position-y) + 100px),
-    calc(var(--hexagon-grup-position-x) + 330px) calc(var(--hexagon-grup-position-y) + 100px),
-    calc(var(--hexagon-grup-position-x) + 165px)  calc(var(--hexagon-grup-position-y) + 200px),
-    calc(var(--hexagon-grup-position-x) + 0px) calc(var(--hexagon-grup-position-y) + 300px),
-    calc(var(--hexagon-grup-position-x) + 330px) calc(var(--hexagon-grup-position-y) + 300px),
-    calc(var(--hexagon-grup-position-x) + 165px)  calc(var(--hexagon-grup-position-y) + 395px),
-    calc(var(--hexagon-grup-position-x) + 495px) calc(var(--hexagon-grup-position-y) + 395px),
-    calc(var(--hexagon-grup-position-x) + 330px) calc(var(--hexagon-grup-position-y) + 490px);
+ /* 1-й ряд */
+ calc(var(--hexagon-grup-position-x) + 0px)  calc(var(--hexagon-grup-position-y) + 0px),
+ calc(var(--hexagon-grup-position-x) + 1.5 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + 0px),
+
+ /* 2-й ряд (зміщений) */
+ calc(var(--hexagon-grup-position-x) + 0.75 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + var(--hexagon-height)),
+
+ calc(var(--hexagon-grup-position-x) + 2.25 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + var(--hexagon-height)),
+
+ /* 3-й ряд */
+ calc(var(--hexagon-grup-position-x) + 0px)  calc(var(--hexagon-grup-position-y) + 2 * var(--hexagon-height)),
+ calc(var(--hexagon-grup-position-x) + 1.5 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + 2 * var(--hexagon-height)),
+
+ /* 4-й ряд (зміщений) */
+ calc(var(--hexagon-grup-position-x) + 0.75 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + 3 * var(--hexagon-height)),
+
+ calc(var(--hexagon-grup-position-x) + 2.25 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + 3 * var(--hexagon-height)),
+
+ /* 5-й ряд */
+ calc(var(--hexagon-grup-position-x) + 0px)  calc(var(--hexagon-grup-position-y) + 4 * var(--hexagon-height)),
+ calc(var(--hexagon-grup-position-x) + 1.5 * var(--hexagon-width)) calc(var(--hexagon-grup-position-y) + 4 * var(--hexagon-height));
   background-repeat: no-repeat;
 }
 
