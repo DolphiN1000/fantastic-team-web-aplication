@@ -7,6 +7,9 @@ if (module.hot) {
 import "./sass/main.scss";
 import "./js/main";
 import "./js/btn";
+
+import "./js/portfolio";
+
 // import "./js/submit-form"
 // import "./js/service-worker-start"
 import headerHTML from "./partials/header.html";
@@ -26,7 +29,3 @@ document.getElementById("ourPortfolio").innerHTML = ourPortfolioHTML;
 document.getElementById("pricing").innerHTML = pricingHTML;
 document.getElementById("contactUs").innerHTML = contactUsHTML;
 document.getElementById("footer").innerHTML = footerHTML;
-
-
-
-
