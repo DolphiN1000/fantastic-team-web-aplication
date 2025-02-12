@@ -59,6 +59,13 @@ const config = {
         type: "asset",
       },
       {
+        test: /\.(png|jpg|jpeg|webp|gif|svg)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]", // Копирует изображения в dist/images/
+        },
+      },
+      {
         test: /\.html$/,
         use: "html-loader",
       },
