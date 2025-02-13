@@ -9,6 +9,7 @@ import "./js/main";
 import "./js/btn";
 
 import "./js/portfolio";
+import "./js/pricing";
 
 // import "./js/submit-form"
 // import "./js/service-worker-start"

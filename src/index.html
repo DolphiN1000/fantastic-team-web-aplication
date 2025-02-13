@@ -80,7 +80,7 @@
       <!-- Our Portfolio --           ----->
       <section id="ourPortfolio" class="section"></section>
       <!-- Pricing --                 ----->
-      <section id="pricing" class="section"></section>
+      <section id="pricing" class="pricing__section"></section>
       <!-- Contact Us --              ----->
       <section id="contactUs" class="section"></section>
     </main>
@@ -95,13 +95,16 @@
       const formData = Object.fromEntries(new FormData(event.target).entries());
 
       try {
-        const response = await fetch("https://www.form-to-email.com/api/s/UTiw851OywNk", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          "https://www.form-to-email.com/api/s/UTiw851OywNk",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
         console.log("sending");
         if (response.ok) {
           // in case of success
