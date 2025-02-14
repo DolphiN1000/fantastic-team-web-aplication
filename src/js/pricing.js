@@ -96,6 +96,28 @@ const pricingPlans = [
 
 document.addEventListener("DOMContentLoaded", function () {
   const pricingList = document.querySelector(".pricing__list");
+  const pricingSwiper = document.querySelector(".pricing__swiper");
+
+  let startX = 0;
+  let isDragging = false;
+  let index = 0;
+  let slidesPerView = getSlidesPerView();
+  let autoSlideInterval;
+  let totalSlides = Math.ceil(pricingPlans.length / slidesPerView);
+
+  function getSlidesPerView() {
+    if (window.innerWidth >= 1280) return "desktop";
+    return window.innerWidth >= 768 ? 2 : 1;
+  }
+
+  function updateSlidesPerView() {
+    slidesPerView = getSlidesPerView();
+    totalSlides = Math.ceil(pricingPlans.length / slidesPerView);
+    index = 0;
+    setPositionByIndex();
+  }
+
+  window.addEventListener("resize", updateSlidesPerView);
 
   pricingPlans.forEach((plan) => {
     const li = document.createElement("li");
@@ -121,4 +143,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
     pricingList.appendChild(li);
   });
+
+  function setPositionByIndex() {
+    if (slidesPerView === "desktop") {
+      pricingList.style.transition = "none";
+      pricingList.style.transform = "none";
+    } else {
+      pricingList.style.transition = "transform 0.5s ease-in-out";
+      pricingList.style.transform = `translateX(-${(index * 100) / slidesPerView}%)`;
+    }
+  }
+
+  function startAutoSlide() {
+    if (slidesPerView === "desktop") return;
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      if (index < totalSlides - 1) {
+        index++;
+      } else {
+        index = 0;
+      }
+      setPositionByIndex();
+    }, 5000);
+  }
+
+  function resetAutoSlide() {
+    if (slidesPerView === "desktop") return;
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  pricingSwiper.addEventListener("touchstart", (event) => {
+    if (slidesPerView === "desktop") return;
+    startX = event.touches[0].clientX;
+    isDragging = true;
+    pricingList.style.transition = "none";
+    clearInterval(autoSlideInterval);
+  });
+
+  pricingSwiper.addEventListener("touchmove", (event) => {
+    if (!isDragging || slidesPerView === "desktop") return;
+    const currentX = event.touches[0].clientX;
+    const moveX = currentX - startX;
+    pricingList.style.transform = `translateX(calc(-${(index * 100) / slidesPerView}% + ${moveX}px))`;
+  });
+
+  pricingSwiper.addEventListener("touchend", (event) => {
+    if (slidesPerView === "desktop") return;
+    isDragging = false;
+    const endX = event.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (diff > 50 && index < totalSlides - 1) {
+      index++;
+    } else if (diff < -50 && index > 0) {
+      index--;
+    }
+
+    setPositionByIndex();
+    resetAutoSlide();
+  });
+
+  setPositionByIndex();
+  startAutoSlide();
 });
