@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Отключает горизонтальный скролл */
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

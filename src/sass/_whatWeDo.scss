@@ -1,31 +1,34 @@
 .whatWeDo__container {
-  overflow-x: hidden;
   position: relative;
   &::before {
     content: "";
     position: absolute;
-    top: -80px;
+    top: -70px;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: url("../images/whatWeDo/Vectormobil.svg");
     background-repeat: no-repeat;
+
     z-index: -2;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     &::before {
+      top: -80px;
       background-image: url("../images/whatWeDo/Vectortablet.svg");
+      z-index: -2;
     }
     &::after {
       content: "";
       position: absolute;
       top: -24px;
-      left: 356px;
+      left: 386px;
       width: 100%;
       height: 100%;
       background-image: url("../images/whatWeDo/Vectortabletright.svg");
       background-repeat: no-repeat;
+      background-size: contain;
       z-index: -2;
     }
   }
