@@ -7,10 +7,8 @@
   // padding: 0 20px;
   padding: 32px 20px;
 
-  
-    background: rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(7.5px);
-
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7.5px);
 
   &__inner {
     display: flex;
@@ -19,7 +17,6 @@
     min-height: 30px;
     font-size: 15px;
     line-height: 17px;
-
   }
 }
 
@@ -89,7 +86,6 @@
 
 @media (max-width: 1279px) {
   .header__nav__btn {
-
     display: block;
     background-color: transparent;
     border: none;

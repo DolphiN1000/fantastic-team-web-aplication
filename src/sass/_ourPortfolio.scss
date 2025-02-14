@@ -4,24 +4,24 @@
   &::before {
     content: "";
     position: absolute;
-    background-image: url(../images/portfolio/Vector.svg);
+    background-image: url(../images/portfolio/Vector_port__mobil.svg);
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    right: -190px;
+    right: -140px;
     top: -60px;
     z-index: -1;
     @media screen and (min-width: 768px) {
-      background-image: url(../images/portfolio/Vector2.svg);
+      background-image: url(../images/portfolio/Vector_port__tablet.svg);
       width: 100%;
       height: 100%;
       right: -80px;
       top: -80px;
       @media screen and (min-width: 1279px) {
-        background-image: url(../images/portfolio/Vector3.svg);
+        background-image: url(../images/portfolio/Vector_port__desktop.svg);
         width: 100%;
         height: 100%;
-        right: -500px;
+        right: -540px;
         top: -100px;
       }
     }

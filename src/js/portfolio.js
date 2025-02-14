@@ -64,30 +64,35 @@ const projects = [
     tablet: [brovkoTablet1x, brovkoTablet2x, brovkoTablet3x],
     mobile: [brovkoMobile1x, brovkoMobile2x, brovkoMobile3x],
     alt: "Brovko",
+    link: "https://brovko.fun/",
   },
   {
     desktop: [brovkoProdDesktop1x, brovkoProdDesktop2x, brovkoProdDesktop3x],
     tablet: [brovkoProdTablet1x, brovkoProdTablet2x, brovkoProdTablet3x],
     mobile: [brovkoProdMobile1x, brovkoProdMobile2x, brovkoProdMobile3x],
     alt: "Brovko Prod",
+    link: "https://brovko.fun/",
   },
   {
     desktop: [filmDesktop1x, filmDesktop2x, filmDesktop3x],
     tablet: [filmTablet1x, filmTablet2x, filmTablet3x],
     mobile: [filmMobile1x, filmMobile2x, filmMobile3x],
     alt: "Film",
+    link: "https://orddreamer.github.io/filmoteka-first-command/",
   },
   {
     desktop: [petsDesktop1x, petsDesktop2x, petsDesktop3x],
     tablet: [petsTablet1x, petsTablet2x, petsTablet3x],
     mobile: [petsMobile1x, petsMobile2x, petsMobile3x],
     alt: "Pets",
+    link: "https://patron4u-pet-app.netlify.app/",
   },
   {
     desktop: [yourPetDesktop1x, yourPetDesktop2x, yourPetDesktop3x],
     tablet: [yourPetTablet1x, yourPetTablet2x, yourPetTablet3x],
     mobile: [yourPetMobile1x, yourPetMobile2x, yourPetMobile3x],
     alt: "Your Pet",
+    link: "https://patron4u-pet-app.netlify.app/",
   },
 ];
 
@@ -102,6 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
   projects.forEach((project) => {
     const listItem = document.createElement("li");
     listItem.classList.add("portfolio__item");
+
+    const link = document.createElement("a");
+    link.href = project.link;
+    link.target = "_blank"; // Открытие в новой вкладке
+    link.rel = "noopener noreferrer"; // Безопасность
 
     const picture = document.createElement("picture");
 
@@ -119,15 +129,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const img = document.createElement("img");
     img.classList.add("portfolio__img");
-    img.src = project.mobile[0];
+    img.src = project.mobile[0]; // По умолчанию загружается мобильное изображение
     img.alt = project.alt;
+    img.loading = "lazy"; // Ленивое подгружение
 
     picture.appendChild(sourceDesktop);
     picture.appendChild(sourceTablet);
     picture.appendChild(sourceMobile);
     picture.appendChild(img);
 
-    listItem.appendChild(picture);
+    link.appendChild(picture);
+    listItem.appendChild(link);
     portfolioList.appendChild(listItem);
   });
 });
