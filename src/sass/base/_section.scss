@@ -4,7 +4,6 @@
   &:nth-child(2n + 3) {
     background-color: var(--dark-background-color);
     color: var(--white-text-color);
-    font-family: "Courier New", Courier, monospace;
     & .btn,
     & input,
     & select,
