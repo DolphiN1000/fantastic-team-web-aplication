@@ -98,12 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const pricingList = document.querySelector(".pricing__list");
   const pricingSwiper = document.querySelector(".pricing__swiper");
 
+  if (!pricingList || !pricingSwiper) return;
+
   let startX = 0;
   let isDragging = false;
   let index = 0;
   let slidesPerView = getSlidesPerView();
   let autoSlideInterval;
-  let totalSlides = Math.ceil(pricingPlans.length / slidesPerView);
+  let totalSlides = pricingPlans.length - (slidesPerView - 1);
 
   function getSlidesPerView() {
     if (window.innerWidth >= 1280) return "desktop";
@@ -112,9 +114,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateSlidesPerView() {
     slidesPerView = getSlidesPerView();
-    totalSlides = Math.ceil(pricingPlans.length / slidesPerView);
+    totalSlides = pricingPlans.length - (slidesPerView - 1);
     index = 0;
+
+    if (slidesPerView === "desktop") {
+      pricingList.style.transition = "none";
+      pricingList.style.transform = "none";
+    }
+
     setPositionByIndex();
+    resetAutoSlide();
   }
 
   window.addEventListener("resize", updateSlidesPerView);
@@ -123,10 +132,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const li = document.createElement("li");
     li.classList.add("pricing__item");
 
-    li.innerHTML = `
-      <h3 class="pricing__subtitle">${plan.title}</h3>
-      <p class="pricing__price">${plan.price}</p>
-    `;
+    const title = document.createElement("h3");
+    title.classList.add("pricing__subtitle");
+    title.textContent = plan.title;
+
+    const price = document.createElement("p");
+    price.classList.add("pricing__price");
+    price.textContent = plan.price;
+
+    li.append(title, price);
 
     plan.features.forEach((feature) => {
       const p = document.createElement("p");
@@ -136,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const button = document.createElement("a");
-    button.href = "#";
+    button.href = "#contact-us";
     button.classList.add("pricing__btn", "link");
     button.textContent = plan.buttonText;
     li.appendChild(button);
@@ -149,8 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
       pricingList.style.transition = "none";
       pricingList.style.transform = "none";
     } else {
-      pricingList.style.transition = "transform 0.5s ease-in-out";
-      pricingList.style.transform = `translateX(-${(index * 100) / slidesPerView}%)`;
+      requestAnimationFrame(() => {
+        const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
+        const moveX = index * slideWidth;
+        pricingList.style.transition = "transform 0.5s ease-in-out";
+        pricingList.style.transform = `translateX(-${moveX}px)`;
+      });
     }
   }
 
@@ -158,18 +176,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (slidesPerView === "desktop") return;
     clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(() => {
-      if (index < totalSlides - 1) {
-        index++;
-      } else {
+      if (index + slidesPerView >= pricingPlans.length) {
         index = 0;
+      } else {
+        index += slidesPerView;
       }
       setPositionByIndex();
     }, 5000);
   }
 
   function resetAutoSlide() {
-    if (slidesPerView === "desktop") return;
-    clearInterval(autoSlideInterval);
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
     startAutoSlide();
   }
 
@@ -185,7 +202,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isDragging || slidesPerView === "desktop") return;
     const currentX = event.touches[0].clientX;
     const moveX = currentX - startX;
-    pricingList.style.transform = `translateX(calc(-${(index * 100) / slidesPerView}% + ${moveX}px))`;
+    const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
+    const baseMoveX = index * slideWidth;
+    pricingList.style.transform = `translateX(calc(-${baseMoveX}px + ${moveX}px))`;
   });
 
   pricingSwiper.addEventListener("touchend", (event) => {
@@ -193,17 +212,19 @@ document.addEventListener("DOMContentLoaded", function () {
     isDragging = false;
     const endX = event.changedTouches[0].clientX;
     const diff = startX - endX;
+    const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
 
-    if (diff > 50 && index < totalSlides - 1) {
-      index++;
+    if (diff > 50 && index + slidesPerView < pricingPlans.length) {
+      index += slidesPerView;
     } else if (diff < -50 && index > 0) {
-      index--;
+      index -= slidesPerView;
     }
 
     setPositionByIndex();
     resetAutoSlide();
   });
 
+  updateSlidesPerView();
   setPositionByIndex();
   startAutoSlide();
 });
