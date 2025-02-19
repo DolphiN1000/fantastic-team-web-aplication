@@ -66,8 +66,13 @@
     <link rel="stylesheet" href="./sass/main.scss" />
 
     <!-- <link rel="stylesheet" href="./css/main.min.css" /> -->
+    <style></style>
   </head>
   <body>
+    <!-- Прелоадер -->
+    <div class="preloader">
+      <div class="logo">WebBees</div>
+    </div>
     <!-- Header ----->
     <header class="section header" id="header"></header>
     <main>
@@ -87,6 +92,18 @@
     <!-- Footer --                    ----->
     <footer id="footer" class="section"></footer>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const preloader = document.querySelector(".preloader");
+      const mainContent = document.querySelector("main");
+
+      preloader.classList.remove("hidden"); //показуємо прелоадер при новому завантаженні
+      setTimeout(() => {
+        preloader.classList.add("hidden");
+        mainContent.style.display = "block";
+      }, 2000);
+    });
+  </script>
   <script>
     console.log("submit foo loaded");
     async function submitForm(event) {
