@@ -10,6 +10,7 @@ import "./js/btn";
 
 import "./js/portfolio";
 import "./js/pricing";
+import "./js/ourServices";
 
 // import "./js/submit-form"
 // import "./js/service-worker-start"
