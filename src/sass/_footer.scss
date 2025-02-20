@@ -1,4 +1,7 @@
 .footer {
+  background-color: var(--dark-background-color);
+  z-index: 1;
+
   &__social-icons {
     display: flex;
     justify-content: center;
