@@ -68,6 +68,8 @@
     <!-- <link rel="stylesheet" href="./css/main.min.css" /> -->
   </head>
   <body>
+    <!-- Прелоадер -->
+    <div id="preloader" class="preloader"></div>
     <!-- Header ----->
     <header class="section header" id="header"></header>
     <main>
@@ -85,13 +87,20 @@
       <section id="contactUs" class="section"></section>
     </main>
     <!-- Footer --                    ----->
-    <footer id="footer" class="section"></footer>
-    <!-- <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <footer id="footer" class="section footer"></footer>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const preloader = document.querySelector(".preloader");
+      const mainContent = document.querySelector("main");
+
+      preloader.classList.remove("hidden"); //показуємо прелоадер при новому завантаженні
+      setTimeout(() => {
+        preloader.classList.add("hidden");
+        mainContent.style.display = "block";
+      }, 2000);
+    });
+  </script>
   <script>
     console.log("submit foo loaded");
     async function submitForm(event) {

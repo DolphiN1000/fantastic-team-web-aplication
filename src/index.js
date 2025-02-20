@@ -14,6 +14,7 @@ import "./js/ourServices";
 
 // import "./js/submit-form"
 // import "./js/service-worker-start"
+import preloaderHTML from "./partials/preloader.html";
 import headerHTML from "./partials/header.html";
 import heroHTML from "./partials/hero.html";
 import whatWeDoHTML from "./partials/whatWeDo.html";
@@ -23,6 +24,7 @@ import pricingHTML from "./partials/pricing.html";
 import contactUsHTML from "./partials/contactUs.html";
 import footerHTML from "./partials/footer.html";
 
+document.getElementById("preloader").innerHTML = preloaderHTML;
 document.getElementById("header").innerHTML = headerHTML;
 document.getElementById("hero").innerHTML = heroHTML;
 document.getElementById("whatWeDo").innerHTML = whatWeDoHTML;
