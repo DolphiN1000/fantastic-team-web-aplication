@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let totalSlides = pricingPlans.length - (slidesPerView - 1);
 
   function getSlidesPerView() {
-    if (window.innerWidth >= 1280) return "desktop";
+    if (window.innerWidth >= 1280) return 3;
     return window.innerWidth >= 768 ? 2 : 1;
   }
 
@@ -117,16 +117,14 @@ document.addEventListener("DOMContentLoaded", function () {
     totalSlides = pricingPlans.length - (slidesPerView - 1);
     index = 0;
 
-    if (slidesPerView === "desktop") {
-      pricingList.style.transition = "none";
-      pricingList.style.transform = "none";
-    }
+    pricingList.style.transition = "none";
+    pricingList.style.transform = "none";
 
     setPositionByIndex();
     resetAutoSlide();
   }
 
-  window.addEventListener("resize", updateSlidesPerView);
+  window.addEventListener("resize", debounce(updateSlidesPerView, 200));
 
   pricingPlans.forEach((plan) => {
     const li = document.createElement("li");
@@ -159,28 +157,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function setPositionByIndex() {
-    if (slidesPerView === "desktop") {
-      pricingList.style.transition = "none";
-      pricingList.style.transform = "none";
-    } else {
-      requestAnimationFrame(() => {
-        const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
-        const moveX = index * slideWidth;
-        pricingList.style.transition = "transform 0.5s ease-in-out";
-        pricingList.style.transform = `translateX(-${moveX}px)`;
-      });
-    }
+    requestAnimationFrame(() => {
+      const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
+      const moveX = index * slideWidth;
+      pricingList.style.transition = "transform 0.5s ease-in-out";
+      pricingList.style.transform = `translateX(-${moveX}px)`;
+    });
   }
 
   function startAutoSlide() {
-    if (slidesPerView === "desktop") return;
+    if (slidesPerView >= 3) return;
     clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(() => {
-      if (index + slidesPerView >= pricingPlans.length) {
-        index = 0;
-      } else {
-        index += slidesPerView;
-      }
+      index = (index + 1) % (pricingPlans.length - slidesPerView + 1);
       setPositionByIndex();
     }, 5000);
   }
@@ -190,27 +179,32 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoSlide();
   }
 
-  pricingSwiper.addEventListener("touchstart", (event) => {
-    if (slidesPerView === "desktop") return;
-    startX = event.touches[0].clientX;
+  function startDrag(event) {
+    if (slidesPerView >= 3) return;
+    startX = event.touches ? event.touches[0].clientX : event.clientX;
     isDragging = true;
     pricingList.style.transition = "none";
+    pricingList.style.pointerEvents = "none";
     clearInterval(autoSlideInterval);
-  });
+  }
 
-  pricingSwiper.addEventListener("touchmove", (event) => {
-    if (!isDragging || slidesPerView === "desktop") return;
-    const currentX = event.touches[0].clientX;
+  function moveDrag(event) {
+    if (!isDragging || slidesPerView >= 3) return;
+    const currentX = event.touches ? event.touches[0].clientX : event.clientX;
     const moveX = currentX - startX;
     const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
     const baseMoveX = index * slideWidth;
     pricingList.style.transform = `translateX(calc(-${baseMoveX}px + ${moveX}px))`;
-  });
+  }
 
-  pricingSwiper.addEventListener("touchend", (event) => {
-    if (slidesPerView === "desktop") return;
+  function endDrag(event) {
+    if (slidesPerView >= 3) return;
     isDragging = false;
-    const endX = event.changedTouches[0].clientX;
+    pricingList.style.pointerEvents = "auto";
+
+    const endX = event.changedTouches
+      ? event.changedTouches[0].clientX
+      : event.clientX;
     const diff = startX - endX;
     const slideWidth = pricingList.firstElementChild.offsetWidth + 20;
 
@@ -222,9 +216,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setPositionByIndex();
     resetAutoSlide();
-  });
+  }
+
+  pricingSwiper.addEventListener("touchstart", startDrag);
+  pricingSwiper.addEventListener("touchmove", moveDrag);
+  pricingSwiper.addEventListener("touchend", endDrag);
+
+  // Добавляем поддержку мыши (drag на ПК)
+  pricingSwiper.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", moveDrag);
+  document.addEventListener("mouseup", endDrag);
 
   updateSlidesPerView();
   setPositionByIndex();
   startAutoSlide();
+
+  // Debounce для resize
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
 });

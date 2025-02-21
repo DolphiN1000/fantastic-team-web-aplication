@@ -110,8 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const link = document.createElement("a");
     link.href = project.link;
-    link.target = "_blank"; // Открытие в новой вкладке
-    link.rel = "noopener noreferrer"; // Безопасность
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
 
     const picture = document.createElement("picture");
 
@@ -129,9 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const img = document.createElement("img");
     img.classList.add("portfolio__img");
-    img.src = project.mobile[0]; // По умолчанию загружается мобильное изображение
+    img.src = project.mobile[0];
     img.alt = project.alt;
-    img.loading = "lazy"; // Ленивое подгружение
+    img.loading = "lazy";
 
     picture.appendChild(sourceDesktop);
     picture.appendChild(sourceTablet);
