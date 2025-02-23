@@ -6,7 +6,7 @@ const ourServices = [
   },
   {
     title: "ІНТЕРНЕТ-МАГАЗИН",
-    text: "Інтернет-магазин — це платформа для онлайн-продажу товарів чи послуг. Він дозволяє клієнтам переглядати каталог, додавати товари в кошик, здійснювати покупки та оплачувати замовлення онлайн. Важливими елементами є зручний пошук, фільтри, система відгуків і інтеграція з платіжними сервісами.",
+    text: "Інтернет-магазин — це платформа для онлайн-продажу товарів чи послуг. Він дозволяє клієнтам переглядати каталог, додавати товари в кошик, здійснювати покупки та оплачувати замовлення онлайн. Важливими елементами є зручний пошук, фільтри, система відгуків та інтеграція з платіжними сервісами.",
     buttonText: "ЗАМОВИТИ",
   },
   {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle.classList.remove("ourServices__subtitle-change");
       const serviceIndex = (currentIndex + index) % ourServices.length;
       subtitle.textContent = ourServices[serviceIndex].title;
-      console.log(`Обновление: ${index} -> ${ourServices[serviceIndex].title}`);
+      console.log(`Оновлення: ${index} -> ${ourServices[serviceIndex].title}`);
     });
 
     subtext.textContent = ourServices[currentIndex].text;
