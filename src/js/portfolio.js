@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const portfolioList = document.querySelector(".portfolio__list");
 
   if (!portfolioList) {
-    console.warn("Элемент .portfolio__list не найден!");
+    console.warn("Елемент .portfolio__list не знайдено!");
     return;
   }
 
