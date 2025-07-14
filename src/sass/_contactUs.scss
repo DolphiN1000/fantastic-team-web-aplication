@@ -143,3 +143,68 @@
   appearance: none; /* Вимикає стилізацію за замовчуванням браузера */
   background-color: #fff;
 }
+
+.footer__created-svg {
+  width: 155px;
+  height: 24px;
+  display: flex;
+  padding: 8px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 14px;
+  border: 1px solid #393838;
+}
+
+.icon-webbees {
+  display: inline-block;
+  stroke-width: 0.4px;
+  stroke: currentColor;
+}
+
+.icon-bee {
+  width: 22.5px;
+  height: 20px;
+  stroke: #e7a805;
+  @media (max-width: 767px) {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.icon-web {
+  width: 56px;
+  height: 20px;
+  stroke: #fff;
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 22px;
+  }
+}
+
+.icon-bees {
+  width: 64px;
+  height: 20px;
+  stroke: #e7a805;
+
+  @media (max-width: 767px) {
+    width: 71px;
+    height: 22px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-link:hover .footer__created-svg {
+    border: 1px solid #8c8c8c;
+  }
+
+  .logo-link:hover .icon-bee,
+  .logo-link:hover .icon-bees {
+    filter: drop-shadow(0 0 2px #e7a805);
+  }
+
+  .logo-link:hover .icon-web {
+    filter: drop-shadow(0 0 2px #ffffff);
+  }
+}
