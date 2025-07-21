@@ -199,7 +199,7 @@
 }
 
 .pricing__btn {
-  color: var(--WHITE, #f6f6f6);
+  // color: var(--WHITE, #f6f6f6);
   font-family: Montserrat;
   font-size: 20px;
   font-style: normal;
@@ -217,16 +217,16 @@
 
   margin-top: auto;
 
-  border-radius: 28px;
-  border: 1px solid var(--ACCENT, #e7a805);
-  transition: background-color var(--transition-duration)
-    var(--transition-timing-function);
+  // border-radius: 28px;
+  // border: 1px solid var(--ACCENT, #e7a805);
+  // transition: background-color var(--transition-duration)
+    // var(--transition-timing-function);
 
-  &:hover,
-  &:focus {
-    background-color: var(--ACCENT, #e7a805);
-    border: 1px solid var(--WHITE, #f6f6f6);
-  }
+  // &:hover,
+  // &:focus {
+    // background-color: var(--ACCENT, #e7a805);
+    // border: 1px solid var(--WHITE, #f6f6f6);
+  // }
 
   @media screen and (min-width: 768px) {
     margin-top: auto;
