@@ -23,6 +23,7 @@ import ourPortfolioHTML from "./partials/ourPortfolio.html";
 import pricingHTML from "./partials/pricing.html";
 import contactUsHTML from "./partials/contactUs.html";
 import footerHTML from "./partials/footer.html";
+import ourBlogHTML from "./partials/ourBlog.html";
 
 document.getElementById("preloader").innerHTML = preloaderHTML;
 document.getElementById("header").innerHTML = headerHTML;
@@ -32,6 +33,8 @@ document.getElementById("ourServices").innerHTML = ourServicesHTML;
 document.getElementById("ourPortfolio").innerHTML = ourPortfolioHTML;
 document.getElementById("pricing").innerHTML = pricingHTML;
 document.getElementById("contactUs").innerHTML = contactUsHTML;
+document.getElementById("ourBlog").innerHTML = ourBlogHTML;
 document.getElementById("footer").innerHTML = footerHTML;
+
 
 import "./js/btn";
