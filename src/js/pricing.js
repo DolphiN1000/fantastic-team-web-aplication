@@ -149,8 +149,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const button = document.createElement("a");
     button.href = "#contact-us";
-    button.classList.add("pricing__btn", "link");
+    button.classList.add("pricing__btn",
+      "btn"
+      // ,"link"
+      );
     button.textContent = plan.buttonText;
+    const span = document.createElement("span");
+    button.appendChild(span);    
     li.appendChild(button);
 
     pricingList.appendChild(li);
