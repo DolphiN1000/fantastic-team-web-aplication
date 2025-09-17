@@ -172,74 +172,58 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
   color: var(--WHITE, #f6f6f6);
   text-align: center;
   font-family: Helvetica;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   text-transform: uppercase;
+  line-height: normal;
+  will-change: transform, color, opacity;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 20px;
   }
-
-  @media screen and (min-width: 1279px) {
+  @media (min-width: 1279px) {
     font-size: 22px;
   }
 }
 
-@keyframes subtitleAnimation {
+@keyframes subtitlePulse {
   0% {
-    font-size: 14px;
+    transform: translate(-50%, -50%) scale(1);
     color: var(--WHITE, #f6f6f6);
     opacity: 0.5;
   }
-
   100% {
-    font-size: 18px;
+    transform: translate(-50%, -50%) scale(var(--pulse-scale, 1.15));
     color: #e7a805;
     opacity: 1;
   }
 }
 
-.ourServices__subtitle-change {
-  animation: subtitleAnimation 0.3s linear forwards;
-
-  @media screen and (min-width: 768px) {
-    animation: subtitleAnimation 0.5s linear forwards;
+.ourServices__subtitle {
+  --pulse-scale: 1.12;
+}
+@media (min-width: 768px) {
+  .ourServices__subtitle {
+    --pulse-scale: 1.18;
+  }
+}
+@media (min-width: 1279px) {
+  .ourServices__subtitle {
+    --pulse-scale: 1.2;
   }
 }
 
-@media screen and (min-width: 768px) {
-  @keyframes subtitleAnimation {
-    0% {
-      font-size: 20px;
-      color: var(--WHITE, #f6f6f6);
-      opacity: 0.5;
-    }
-    100% {
-      font-size: 30px;
-      color: #e7a805;
-      opacity: 1;
-    }
-  }
-}
-
-@media screen and (min-width: 1279px) {
-  @keyframes subtitleAnimation {
-    0% {
-      font-size: 22px;
-      color: var(--WHITE, #f6f6f6);
-      opacity: 0.5;
-    }
-    100% {
-      font-size: 36px;
-      color: #e7a805;
-      opacity: 1;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .ourServices__subtitle-change {
+    animation: none;
+    color: #e7a805;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -256,7 +240,7 @@
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
-    padding: 26px;
+    padding: 36px;
   }
 
   @media screen and (min-width: 1279px) {
@@ -265,24 +249,61 @@
     margin-left: auto;
     margin-right: auto;
     width: 737px;
-    padding: 32px;
+    padding: 40px;
     flex-shrink: 0;
     z-index: 1;
   }
 }
 
 .ourServices__subtext {
+  --pulse-scale-inline: 1.08;
+
   color: var(--GRAY, #656565);
   text-align: center;
   font-family: Helvetica;
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 30px; /* 166.667% */
+  line-height: 30px;
 
-  @media screen and (min-width: 1279px) {
+  @media (min-width: 1279px) {
     font-size: 24px;
   }
+}
+
+@keyframes subtitlePulseInline {
+  0% {
+    transform: scale(0.9);
+    color: var(--GRAY, #656565);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(var(--pulse-scale-inline, 1));
+    color: #e7a805;
+    opacity: 1;
+  }
+}
+
+.ourServices__subtext-change {
+  animation: subtitlePulseInline 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@media (min-width: 1279px) {
+  .ourServices__subtext {
+    --pulse-scale-inline: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ourServices__subtext-change {
+    animation: none;
+    color: #e7a805;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ourServices__subtitle-change {
+  animation: subtitlePulse 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 .ourServices__wrapperBtn {
@@ -369,17 +390,6 @@
   align-self: stretch;
 
   margin-top: auto;
-
-  // border-radius: 28px;
-  // border: 1px solid var(--ACCENT, #e7a805);
-  // transition: background-color var(--transition-duration)
-    // var(--transition-timing-function);
-
-  // &:hover,
-  // &:focus {
-    // background-color: var(--ACCENT, #e7a805);
-    // border: 1px solid var(--WHITE, #f6f6f6);
-  // }
 
   @media screen and (min-width: 768px) {
     margin-left: auto;

@@ -43,32 +43,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector(".ourServices__swiperButtonRight");
   const subtext = document.querySelector(".ourServices__subtext");
 
+  if (!subtitles.length || !subtext || !prevButton || !nextButton) return;
+
+  function restartAnimation(el, cls) {
+    el.classList.remove(cls);
+    void el.offsetWidth;
+    el.classList.add(cls);
+  }
+
   function updateSubtitles() {
     subtitles.forEach((subtitle, index) => {
       subtitle.classList.remove("ourServices__subtitle-change");
       const serviceIndex = (currentIndex + index) % ourServices.length;
       subtitle.textContent = ourServices[serviceIndex].title;
-      console.log(`Оновлення: ${index} -> ${ourServices[serviceIndex].title}`);
     });
 
+    subtext.classList.remove("ourServices__subtext-change");
     subtext.textContent = ourServices[currentIndex].text;
 
     requestAnimationFrame(() => {
-      subtitles[0].classList.add("ourServices__subtitle-change");
+      restartAnimation(subtitles[0], "ourServices__subtitle-change");
+      restartAnimation(subtext, "ourServices__subtext-change");
     });
   }
 
   function moveSubtitle(direction) {
     subtitles[0].classList.remove("ourServices__subtitle-change");
+    subtext.classList.remove("ourServices__subtext-change");
 
-    if (direction === 1) {
-      currentIndex = (currentIndex + 1) % ourServices.length;
-    } else {
-      currentIndex =
-        (currentIndex - 1 + ourServices.length) % ourServices.length;
-    }
+    currentIndex =
+      direction === 1
+        ? (currentIndex + 1) % ourServices.length
+        : (currentIndex - 1 + ourServices.length) % ourServices.length;
 
-    requestAnimationFrame(() => updateSubtitles());
+    requestAnimationFrame(updateSubtitles);
   }
 
   nextButton.addEventListener("click", () => moveSubtitle(1));
